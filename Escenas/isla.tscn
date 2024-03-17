@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5xg6pgydm6w1"]
+
+[ext_resource type="PackedScene" uid="uid://dmie7tioe3wlx" path="res://Assets/Exportaciones_Blender/Isla.gltf" id="1_kv7xu"]
+[ext_resource type="Material" uid="uid://djewiy5gvaehf" path="res://Assets/Materiales/Isla.tres" id="2_0bps3"]
+
+[node name="Isla2" instance=ExtResource("1_kv7xu")]
+
+[node name="Isla" parent="." index="0"]
+material_override = ExtResource("2_0bps3")

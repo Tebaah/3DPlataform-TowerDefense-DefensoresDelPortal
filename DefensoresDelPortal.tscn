@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://x34feifkhfvo"]
+
+[ext_resource type="PackedScene" uid="uid://bhckow5p3oeyc" path="res://Escenas/rocas_2.tscn" id="2_ebvrn"]
+[ext_resource type="PackedScene" uid="uid://c5xg6pgydm6w1" path="res://Escenas/isla.tscn" id="2_ecdck"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Isla2" parent="." instance=ExtResource("2_ecdck")]
+
+[node name="Rocas2" parent="." instance=ExtResource("2_ebvrn")]
