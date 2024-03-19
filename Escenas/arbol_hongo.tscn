@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctyws68v3bai8"]
+
+[ext_resource type="PackedScene" uid="uid://dnkif1w0g33vo" path="res://Assets/Exportaciones_Blender/arbol_Hongo.gltf" id="1_k321c"]
+[ext_resource type="Material" uid="uid://bb5c6jcml605g" path="res://Assets/Materiales/Rocas.tres" id="2_rng2q"]
+
+[node name="arbol_Hongo" instance=ExtResource("1_k321c")]
+
+[node name="Circle_002" parent="." index="0"]
+material_override = ExtResource("2_rng2q")
+surface_material_override/0 = ExtResource("2_rng2q")

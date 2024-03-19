@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d03cuihm0oylo"]
+
+[ext_resource type="PackedScene" uid="uid://bf8itup1ogryu" path="res://Assets/Exportaciones_Blender/superficie.gltf" id="1_x5s8o"]
+[ext_resource type="Material" uid="uid://dahsha1e7tn0j" path="res://Assets/Materiales/Superficie_Torre.tres" id="2_onerg"]
+
+[node name="superficie" instance=ExtResource("1_x5s8o")]
+
+[node name="Centro" parent="." index="0"]
+material_override = ExtResource("2_onerg")

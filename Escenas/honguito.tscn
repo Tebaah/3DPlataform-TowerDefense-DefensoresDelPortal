@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c46waxrkpw0gu"]
+
+[ext_resource type="PackedScene" uid="uid://cqdf4xmxb3mfc" path="res://Assets/Exportaciones_Blender/Honguito.gltf" id="1_7dr4j"]
+[ext_resource type="Material" uid="uid://bb5c6jcml605g" path="res://Assets/Materiales/Rocas.tres" id="2_son81"]
+
+[node name="Honguito" instance=ExtResource("1_7dr4j")]
+
+[node name="Honguitos" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_son81")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ktxrs0we05qt"]
+
+[ext_resource type="PackedScene" uid="uid://yboh048fkqcu" path="res://Assets/Exportaciones_Blender/Pasto.gltf" id="1_60aws"]
+[ext_resource type="Material" uid="uid://bb5c6jcml605g" path="res://Assets/Materiales/Rocas.tres" id="2_t72ae"]
+
+[node name="Pasto" instance=ExtResource("1_60aws")]
+
+[node name="PastoPrincipal" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_t72ae")
