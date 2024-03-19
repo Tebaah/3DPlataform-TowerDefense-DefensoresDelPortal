@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctsgg4hyejnrj"]
+
+[ext_resource type="PackedScene" uid="uid://cw5qrpg63bnfb" path="res://Assets/Exportaciones_Blender/Rocas.gltf" id="1_p353c"]
+[ext_resource type="Material" uid="uid://bb5c6jcml605g" path="res://Assets/Materiales/Rocas.tres" id="2_g4nrp"]
+
+[node name="Rocas2" instance=ExtResource("1_p353c")]
+
+[node name="Rocas" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_g4nrp")

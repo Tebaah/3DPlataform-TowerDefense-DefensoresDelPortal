@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="3d Plataform-tower Defense-defensores Del Portal"
+run/main_scene="res://DefensoresDelPortal.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -22,3 +23,5 @@ project/assembly_name="3d Plataform-tower Defense-defensores Del Portal"
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/volumetric_fog/volume_size=256
+environment/defaults/default_clear_color=Color(0.301961, 0.301961, 0.301961, 1)

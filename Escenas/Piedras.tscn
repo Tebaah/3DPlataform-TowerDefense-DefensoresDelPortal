@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5s4tir373qjd"]
+
+[ext_resource type="PackedScene" uid="uid://c2g74xcr85xtc" path="res://Assets/Exportaciones_Blender/Piedras.gltf" id="1_iul76"]
+[ext_resource type="Material" uid="uid://bb5c6jcml605g" path="res://Assets/Materiales/Rocas.tres" id="2_vr1a4"]
+
+[node name="Piedras" instance=ExtResource("1_iul76")]
+
+[node name="Rocas3" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_vr1a4")
