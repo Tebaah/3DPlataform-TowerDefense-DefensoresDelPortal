@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bbcf8adjdu0nj"
-path="res://.godot/imported/PastoSolo.gltf-94d14c87ae8cb9790eeb040c9654ba51.scn"
+uid="uid://blfl3duopl6gq"
+path="res://.godot/imported/PastoSolo2.gltf-8b8dc58e60d806a2856d98715637d838.scn"
 
 [deps]
 
-source_file="res://Assets/Exportaciones_Blender/PastoSolo.gltf"
-dest_files=["res://.godot/imported/PastoSolo.gltf-94d14c87ae8cb9790eeb040c9654ba51.scn"]
+source_file="res://Assets/Exportaciones_Blender/PastoSolo2.gltf"
+dest_files=["res://.godot/imported/PastoSolo2.gltf-8b8dc58e60d806a2856d98715637d838.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "meshes": {
-"PastoSolo_Plane_048": {
+"PastoSolo2_Plane_015": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -39,7 +39,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://Mesh/grass.res"
+"save_to_file/path": "res://Mesh/Pasto2.res"
 }
 }
 }

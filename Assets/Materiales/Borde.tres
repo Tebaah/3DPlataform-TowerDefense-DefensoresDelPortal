@@ -1,7 +1,9 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://dmvjghq4ranex"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dmvjghq4ranex"]
+
+[ext_resource type="Texture2D" uid="uid://pcgqq5cks1ba" path="res://Assets/Texturas/Centro_BaseColor_TorreIsla.png" id="1_apocg"]
 
 [resource]
-cull_mode = 1
-albedo_color = Color(0.14902, 0.270588, 0.176471, 1)
+cull_mode = 2
+albedo_texture = ExtResource("1_apocg")
 grow = true
-grow_amount = 0.025
+grow_amount = 0.002
