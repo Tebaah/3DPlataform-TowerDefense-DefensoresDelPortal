@@ -6,6 +6,7 @@ public partial class PlayerController : CharacterBody3D
   // variables
   // variables de movimiento
   [Export] public float speed;
+  [Export] public float jumpForce;
 
   //variable de gravedad
   public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
@@ -25,6 +26,13 @@ public partial class PlayerController : CharacterBody3D
     Vector2 inputDirection = Input.GetVector("left", "right", "up", "down");
     Vector3 direction = (GlobalTransform.Basis * new Vector3(inputDirection.X, 0, inputDirection.Y)).Normalized();
 
+    // aplicamos la gravedad
+    if(!IsOnFloor())
+    {
+      velocity.Y -= gravity * 5 * (float)delta;
+    }
+
+    // aplicamos el movimiento
     if(inputDirection != Vector2.Zero)
     {
       velocity.X = direction.X * speed;
@@ -34,6 +42,12 @@ public partial class PlayerController : CharacterBody3D
     {
       velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
       velocity.Z = Mathf.MoveToward(Velocity.Z, 0, speed);
+    }
+
+    // aplicamos el salto
+    if(IsOnFloor() && Input.IsActionJustPressed("jump"))
+    {
+      velocity.Y = jumpForce;
     }
 
     Velocity = velocity;

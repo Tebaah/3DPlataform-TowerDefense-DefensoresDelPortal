@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c26e45m0dyo1r"]
+[gd_scene load_steps=5 format=3 uid="uid://c26e45m0dyo1r"]
 
 [ext_resource type="PackedScene" uid="uid://ci8wah045gx5" path="res://Assets/Exportaciones_Blender/Character.glb" id="1_62osr"]
 [ext_resource type="Script" path="res://Scripts/PlayerController.cs" id="1_rd6j5"]
+[ext_resource type="Script" path="res://Scripts/CameraController.cs" id="3_3vuha"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xy10y"]
 height = 1.58042
@@ -15,9 +16,17 @@ speed = 15.0
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5.7742e-08, 0, -1.33333)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5.7742e-08, 0.846761, -1.33333)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0096088, 0.846761, -1.33455)
 shape = SubResource("CapsuleShape3D_xy10y")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="CameraRoot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28301, -1.31839)
+script = ExtResource("3_3vuha")
+
+[node name="CameraYaw" type="Node3D" parent="CameraRoot"]
+
+[node name="CameraPitch" type="Node3D" parent="CameraRoot/CameraYaw"]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRoot/CameraYaw/CameraPitch"]
 transform = Transform3D(1, 1.19422e-07, -1.19422e-07, -5.01048e-08, 0.885053, 0.465491, 1.61284e-07, -0.465491, 0.885053, -1.17347e-07, 4.80832, 5.59202)
 fov = 60.0

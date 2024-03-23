@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://x34feifkhfvo"]
+[gd_scene load_steps=18 format=3 uid="uid://x34feifkhfvo"]
 
 [ext_resource type="Texture2D" uid="uid://df2vty0cfhnny" path="res://Assets/Texturas/sky_linekotsi_13.png" id="1_ig3dn"]
 [ext_resource type="PackedScene" uid="uid://bhckow5p3oeyc" path="res://Escenas/rocas_2.tscn" id="2_ebvrn"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bn5xkk4slu3fy" path="res://Escenas/Pasto2.tscn" id="12_rqk23"]
 [ext_resource type="PackedScene" uid="uid://blbq1sg1agdr4" path="res://Escenas/Pasto3.tscn" id="13_smayc"]
 [ext_resource type="PackedScene" uid="uid://8blv78gxqrbb" path="res://Escenas/Pasto5.tscn" id="14_4a28r"]
+[ext_resource type="Script" path="res://Scripts/ShowFps.cs" id="14_gn2ma"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2lufd"]
 panorama = ExtResource("1_ig3dn")
@@ -39,76 +40,96 @@ volumetric_fog_density = 0.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g8rws")
 
-[node name="Isla2" parent="." instance=ExtResource("2_ecdck")]
+[node name="Naturaleza" type="Node3D" parent="."]
+
+[node name="Isla2" parent="Naturaleza" instance=ExtResource("2_ecdck")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0423059, 0.0404158, 0.00280762)
 
-[node name="Rocas" parent="." instance=ExtResource("2_ebvrn")]
+[node name="Rocas" parent="Naturaleza" instance=ExtResource("2_ebvrn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.151162, 0)
 
-[node name="superficie" parent="." instance=ExtResource("3_rpf0m")]
+[node name="Piedras" parent="Naturaleza" instance=ExtResource("7_n4ybr")]
+
+[node name="Honguito" parent="Naturaleza" instance=ExtResource("8_l4ddw")]
+
+[node name="arbol_Hongo" parent="Naturaleza" instance=ExtResource("10_47uli")]
+
+[node name="Pasto" type="Node3D" parent="Naturaleza"]
+
+[node name="Pasto1" parent="Naturaleza/Pasto" instance=ExtResource("11_0x5fi")]
+
+[node name="Pasto2" parent="Naturaleza/Pasto" instance=ExtResource("14_4a28r")]
+
+[node name="Pasto3" parent="Naturaleza/Pasto" instance=ExtResource("12_rqk23")]
+
+[node name="Pasto4" parent="Naturaleza/Pasto" instance=ExtResource("13_smayc")]
+
+[node name="Torreta" type="Node3D" parent="Naturaleza"]
+
+[node name="superficie" parent="Naturaleza/Torreta" instance=ExtResource("3_rpf0m")]
 transform = Transform3D(1.00943, 0.000271713, -0.00104549, -0.000272388, 1.00943, -0.000664846, 0.00104531, 0.000665123, 1.00943, 0, 0, 0)
 
-[node name="Torre2" parent="." instance=ExtResource("4_n1tfb")]
+[node name="Torre2" parent="Naturaleza/Torreta" instance=ExtResource("4_n1tfb")]
 transform = Transform3D(0.967669, 0.00026047, -0.00100223, -0.000261118, 0.967669, -0.00063734, 0.00100206, 0.000637604, 0.967669, 0, 0, 0)
 
-[node name="Piedras" parent="." instance=ExtResource("7_n4ybr")]
-
-[node name="Honguito" parent="." instance=ExtResource("8_l4ddw")]
-
-[node name="arbol_Hongo" parent="." instance=ExtResource("10_47uli")]
-
 [node name="Player" parent="." instance=ExtResource("10_qkf6j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.6555)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0683341, 0, 17.6555)
+speed = 10.0
+jumpForce = 10.0
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="Luces" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Luces"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00738, 5.69029, 0.168036)
 light_energy = 10.991
 omni_range = 100.0
 
-[node name="OmniLight3D9" type="OmniLight3D" parent="."]
+[node name="OmniLight3D9" type="OmniLight3D" parent="Luces"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3727, 4.49687, 13.374)
 light_energy = 10.991
 omni_range = 100.0
 
-[node name="OmniLight3D8" type="OmniLight3D" parent="."]
+[node name="OmniLight3D8" type="OmniLight3D" parent="Luces"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8043, 5.83607, -8.82726)
 light_energy = 10.991
 omni_range = 100.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Luces"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0129569, 7.28671, 12.5795)
 light_energy = 10.0
 omni_range = 10.61
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+[node name="OmniLight3D4" type="OmniLight3D" parent="Luces"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2854, 6.86408, 21.6138)
 light_energy = 10.0
 omni_range = 10.61
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+[node name="OmniLight3D3" type="OmniLight3D" parent="Luces"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36905, 8.35693, 12.6042)
 light_energy = 2.936
 omni_range = 7.5
 
-[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+[node name="OmniLight3D5" type="OmniLight3D" parent="Luces"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36905, 3.28116, 21.7716)
 light_energy = 2.936
 omni_range = 7.5
 
-[node name="OmniLight3D6" type="OmniLight3D" parent="."]
+[node name="OmniLight3D6" type="OmniLight3D" parent="Luces"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.27112, 4.08353, 12.5268)
 light_energy = 2.936
 omni_range = 22.624
 
-[node name="OmniLight3D7" type="OmniLight3D" parent="."]
+[node name="OmniLight3D7" type="OmniLight3D" parent="Luces"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4224, 4.08353, 12.0473)
 light_energy = 2.936
 omni_range = 22.624
 
-[node name="Pasto1" parent="." instance=ExtResource("11_0x5fi")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("14_gn2ma")
 
-[node name="Pasto2" parent="." instance=ExtResource("14_4a28r")]
-
-[node name="Pasto3" parent="." instance=ExtResource("12_rqk23")]
-
-[node name="Pasto4" parent="." instance=ExtResource("13_smayc")]
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "fps"
