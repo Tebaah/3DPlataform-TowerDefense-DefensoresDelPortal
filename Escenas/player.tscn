@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c26e45m0dyo1r"]
+[gd_scene load_steps=6 format=3 uid="uid://c26e45m0dyo1r"]
 
 [ext_resource type="PackedScene" uid="uid://ci8wah045gx5" path="res://Assets/Exportaciones_Blender/Character.glb" id="1_62osr"]
 [ext_resource type="Script" path="res://Scripts/PlayerController.cs" id="1_rd6j5"]
@@ -7,26 +7,35 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xy10y"]
 height = 1.58042
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_bpq34"]
+
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0277883, 0.0755676, -0.0207911)
 script = ExtResource("1_rd6j5")
 speed = 15.0
 
-[node name="Character2" parent="." instance=ExtResource("1_62osr")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5.7742e-08, 0, -1.33333)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0096088, 0.846761, -1.33455)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.01, 0.847, 0)
 shape = SubResource("CapsuleShape3D_xy10y")
 
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Character2" parent="Visual" instance=ExtResource("1_62osr")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
 [node name="CameraRoot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28301, -1.31839)
 script = ExtResource("3_3vuha")
 
 [node name="CameraYaw" type="Node3D" parent="CameraRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004, 4.5, 0)
 
 [node name="CameraPitch" type="Node3D" parent="CameraRoot/CameraYaw"]
 
-[node name="Camera3D" type="Camera3D" parent="CameraRoot/CameraYaw/CameraPitch"]
-transform = Transform3D(1, 1.19422e-07, -1.19422e-07, -5.01048e-08, 0.885053, 0.465491, 1.61284e-07, -0.465491, 0.885053, -1.17347e-07, 4.80832, 5.59202)
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraRoot/CameraYaw/CameraPitch"]
+shape = SubResource("SphereShape3D_bpq34")
+spring_length = 5.0
+margin = 0.09
+
+[node name="Camera3D" type="Camera3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D"]
+transform = Transform3D(1, 1.19422e-07, -1.19422e-07, -2.697e-08, 0.810952, 0.585113, 1.6672e-07, -0.585113, 0.810952, 0, 0, 0)
 fov = 60.0

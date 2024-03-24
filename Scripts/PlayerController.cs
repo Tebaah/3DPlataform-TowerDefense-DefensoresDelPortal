@@ -12,14 +12,25 @@ public partial class PlayerController : CharacterBody3D
   public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
   private Vector3 velocity = Vector3.Zero;
+
+  // variables nodo hijos
+  public Node3D visual;
   // metodos
   public override void _Ready()
   {
-      // Called every time the node is added to the scene.
-      // Initialization here
+    // inicialzar nodos hijos
+    visual = GetNode<Node3D>("Visual");
   }
 
-  public override void _PhysicsProcess(double delta)
+    public override void _Input(InputEvent @event)
+    {
+      if(@event is InputEventMouseMotion mouseMotion)
+      {
+        RotateY(Mathf.DegToRad(-mouseMotion.Relative.X * 0.5f));
+      }
+    }
+
+    public override void _PhysicsProcess(double delta)
   {
     
     // obtenemos los inputs del jugador
@@ -35,6 +46,9 @@ public partial class PlayerController : CharacterBody3D
     // aplicamos el movimiento
     if(inputDirection != Vector2.Zero)
     {
+      // modelo ve en direccion del movimiento
+      visual.LookAt(Position + direction * (float)delta);
+
       velocity.X = direction.X * speed;
       velocity.Z = direction.Z * speed;
     }

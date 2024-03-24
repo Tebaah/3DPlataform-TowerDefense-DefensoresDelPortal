@@ -22,8 +22,8 @@ public partial class CameraController : Node3D
     {
       // inicializar los nodos hijos
         yawNode = GetNode<Node3D>("CameraYaw");
-        pitchNode = yawNode.GetNode<Node3D>("CameraPitch");
-        camera = pitchNode.GetNode<Camera3D>("Camera3D");
+        pitchNode = GetNode<Node3D>("CameraYaw/CameraPitch");
+        camera = GetNode<Camera3D>("CameraYaw/CameraPitch/SpringArm3D/Camera3D");
 
       // ocultar el cursor
         Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -50,5 +50,7 @@ public partial class CameraController : Node3D
 
       float newPitch = Mathf.Lerp(pitchNode.RotationDegrees.X, pitch, pitchAcceleration * (float)delta);
       pitchNode.RotationDegrees = new Vector3(newPitch, pitchNode.RotationDegrees.Y, pitchNode.RotationDegrees.Z);
+
+  
     }
 }
